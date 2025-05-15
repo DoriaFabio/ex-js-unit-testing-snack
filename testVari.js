@@ -20,5 +20,10 @@ function average(arr) {
     }
     return media = somma / arr.length;
 }
+//? Funzione che sostituisce gli spazi con -
+function createPhrase(phrase) {
+    const changeSpace = phrase.replaceAll(" ", "-");
+    return changeSpace;
+}
 
-module.exports = {getInitial, createSlug, average}
+module.exports = {getInitial, createSlug, average, createPhrase}

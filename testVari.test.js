@@ -17,5 +17,10 @@ test('La funzione average calcola la media aritmetica di un array di numeri.', (
     const result2 = average([1, 2, 3, 4, 4]);
     expect(result2).toBeCloseTo(2.8);
 })
+//! Test 4
+test('La funzione createPhrase sostituisce gli spazi con -', () => {
+    const result = createPhrase("Fabio è un bravo ragazzo");
+    expect(result).toBe("Fabio-è-un-bravo-ragazzo");
+})
 
-const { getInitial, createSlug, average } = require("./testVari");
+const { getInitial, createSlug, average, createPhrase } = require("./testVari");
