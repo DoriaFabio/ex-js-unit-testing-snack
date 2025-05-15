@@ -7,4 +7,9 @@ function getInitial(nomeCompleto) {
     return iniziali;
 }
 
-module.exports = {getInitial}
+function createSlug(parola) {
+    const lowerparola = parola.toLowerCase();
+    return lowerparola;
+}
+
+module.exports = {getInitial, createSlug}
