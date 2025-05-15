@@ -1,17 +1,3 @@
-# 🏆 Snack 7
-Crea un array di oggetti posts, in cui ogni oggetto ha le proprietà id, title e slug.
-
-Creare un test che verifichi le seguenti descrizioni:
-
-👉 "La funzione findPostById restituisce il post corretto dato l’array di post e l’id"
-
-Creare uno o più test aggiuntivi che controllino che la struttura dati passati sia conforme (ogni post ha le proprietà id, title e slug, viene passato un id numerico).
-
-
-# 🏆 Challenge: describe() - organizzazione dei test
-Organizza i test in describe() raggruppandoli per argomento.
-
-
 # 🎯 Snack 8 (Bonus)
 Creare due test che verifichino le seguenti descrizioni:
 

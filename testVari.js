@@ -33,7 +33,19 @@ function isPalindrome(p) {
 }
 //? Funzione che restituisce il post corretto dato l'array di post e l'id
 function findPostById(post, id) {
+    if (isNaN(id)) {
+        throw new Error(`${id} non è un id numerico`);
+    }
+    post.forEach(p => {
+        if (p.id === undefined ||
+            p.title === undefined ||
+            p.slug === undefined
+        ) {
+            throw new Error("L'array posts non è nel formato corretto");
+        }
+    });
     const postFind = post.find(p => p.id === id);
-    return postFind;
+    return postFind || null;
 }
 module.exports = { getInitial, createSlug, average, isPalindrome, findPostById }
+
