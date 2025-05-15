@@ -8,7 +8,7 @@ test('La funzione createSlug restituisce una stringa in lowercase', () => {
     const result = createSlug("BooLean");
     expect(result).toBe("boolean");
     const result2 = createSlug("Fabio Doria");
-    expect(result2).toBe("fabio doria");
+    expect(result2).toBe("fabio-doria");
 })
 //! Test 3
 test('La funzione average calcola la media aritmetica di un array di numeri.', () => {
@@ -18,9 +18,56 @@ test('La funzione average calcola la media aritmetica di un array di numeri.', (
     expect(result2).toBeCloseTo(2.8);
 })
 //! Test 4
-test('La funzione createPhrase sostituisce gli spazi con -', () => {
-    const result = createPhrase("Fabio è un bravo ragazzo");
-    expect(result).toBe("Fabio-è-un-bravo-ragazzo");
+test('La funzione createSlug sostituisce gli spazi con -', () => {
+    const result = createSlug("Fabio è un bravo ragazzo");
+    expect(result).toBe("fabio-è-un-bravo-ragazzo");
+})
+//! Test 5
+test('La funzione isPalindrome verifica se una stringa è un palindromo.', () => {
+    const result = isPalindrome("Otto");
+    const result2 = isPalindrome("orto");
+    const result3 = isPalindrome("I topi non avevano nipoti");
+    expect(result).toBeTruthy();
+    expect(result2).toBeFalsy();
+    expect(result3).toBeTruthy();
+})
+//! Test 6
+test('La funzione createSlug lancia un errore se il titolo è vuoto o non valido.', () => {
+    expect(() => createSlug("")).toThrow();
+    expect(() => createSlug(null)).toThrow();
 })
 
-const { getInitial, createSlug, average, createPhrase } = require("./testVari");
+//todo Array di posts
+let posts;
+beforeEach(() => {
+    posts = [
+        {
+            id: 1,
+            title: "Introduzione a JavaScript",
+            slug: "introduzione-a-javascript"
+        },
+        {
+            id: 2,
+            title: "Come usare gli array",
+            slug: "come-usare-gli-array"
+        },
+        {
+            id: 3,
+            title: "Guida ai cicli for",
+            slug: "guida-ai-cicli-for"
+        },
+    ];
+});
+afterEach(() => {
+    posts = [];
+})
+//! Test 7
+test("La funzione findPostById restituisce il post corretto dato l'array di post e l'id", () => {
+    expect(findPostById(posts, 2)).toEqual({
+        id: 2,
+        title: "Come usare gli array",
+        slug: "come-usare-gli-array"
+    });
+});
+ 
+const { getInitial, createSlug, average, isPalindrome, findPostById } = require("./testVari");

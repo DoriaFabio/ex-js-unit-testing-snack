@@ -7,10 +7,16 @@ function getInitial(nomeCompleto) {
     }
     return iniziali;
 }
-//? Funzione che restituisce la parola in minuscolo
+//? Funzione che restituisce la parola in minuscolo, 
+//? sostituisce gli spazi con - e 
+//? genera errore se la stringa non esiste
 function createSlug(parola) {
+    if (!parola) {
+        throw new Error("Titolo vuoto o mancante");
+    }
     const lowerparola = parola.toLowerCase();
-    return lowerparola;
+    const changeSpace = lowerparola.replaceAll(" ", "-");
+    return changeSpace;
 }
 //? Funzione che restituisce la media di un array di numeri
 function average(arr) {
@@ -20,10 +26,14 @@ function average(arr) {
     }
     return media = somma / arr.length;
 }
-//? Funzione che sostituisce gli spazi con -
-function createPhrase(phrase) {
-    const changeSpace = phrase.replaceAll(" ", "-");
-    return changeSpace;
+//? Funzione che verifica se una stringa è palindroma
+function isPalindrome(p) {
+    let pLower = p.toLowerCase().replaceAll(" ", "");
+    return pLower.split("").reverse().join("") === pLower;
 }
-
-module.exports = {getInitial, createSlug, average, createPhrase}
+//? Funzione che restituisce il post corretto dato l'array di post e l'id
+function findPostById(post, id) {
+    const postFind = post.find(p => p.id === id);
+    return postFind;
+}
+module.exports = { getInitial, createSlug, average, isPalindrome, findPostById }
